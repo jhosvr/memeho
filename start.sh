@@ -6,8 +6,7 @@
 runtime(){ $(date +%T); }
 branch=$(git branch | head -n1 | cut -d' ' -f2)
 
-echo "Status: "
-git status
+echo "THIS IS: ${GIT_BRANCH##origin/}"
 echo "$runtime: Executing for branch $branch"
 
 case $branch in
