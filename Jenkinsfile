@@ -9,13 +9,14 @@ npmStart()
 
 def checkoutScm() {
 	stage('Checkout SCM') {
-    if (env.BRANCH_NAME == 'master') {
-		checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
-	  } elseif (env.BRANCH_NAME == 'develop') {
-    checkout([$class: 'GitSCM', branches: [[name: 'develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
-    } else {
-    checkout([$class: 'GitSCM', branches: [[name: env.BRANCH_NAME]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
-}
+    checkout([$class: 'GitSCM', 
+      branches: [[name: env.BRANCH_NAME]], 
+      doGenerateSubmoduleConfigurations: false, 
+      extensions: [], 
+      submoduleCfg: [], 
+      userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
+  }
+} 
 
 def npmInstall() {
 	stage('Install Dependencies') {
