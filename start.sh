@@ -3,7 +3,7 @@
 # name: start.sh
 # description: starts the memeho discord bot
 
-msg(){ echo "$(date +%T) ${1}"; }
+msg(){ echo "$(date +%Y%m%d-%T): ${1}"; }
 branch=$(echo "${GIT_BRANCH##origin/}")
 
 msg "Executing for branch $branch"
@@ -15,7 +15,7 @@ case $branch in
 		main="memeho.js"
 		;;
 	*)
-		echo "ERROR: unknown main file detected. A js file will need to be specified for this branch."
+		msg "ERROR: unknown main file detected. A js file will need to be specified for this branch."
 		exit 1
 		;;
 esac
@@ -23,8 +23,8 @@ esac
 msg "Terminating existing instance"
 pkill -f $main
 
-msg "runtime: Installing packages"
+msg "Installing packages"
 npm install
 
-msg "runtime: Starting Memehobot"
+msg "Starting Memehobot"
 node $main &
