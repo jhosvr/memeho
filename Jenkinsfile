@@ -1,3 +1,4 @@
+/*
 pipeline {
 	agent any
 	stages {
@@ -16,5 +17,32 @@ pipeline {
 				sh 'npm start'
 			}
 		}
+	}
+}
+*/
+
+node { 
+
+npmInst()
+npmDead()
+npmAlive()
+
+}
+
+def npmInst() {
+	stage('Install Dependencies') {
+		sh " npm install "
+	}
+}
+
+def npmDead() {
+	stage ('Kill existing instance') {
+		sh " npm stop "
+	}
+}
+
+def npmAlive() {
+	stage ('Startup new instance') {
+		sh " npm start "
 	}
 }
