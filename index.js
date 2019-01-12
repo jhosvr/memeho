@@ -12,8 +12,8 @@ bot.on('message', function(message){
 	
     if(message.content == 'tom')
     {
-        // @toml88#1653 
-        message.channel.send('<@280411897730301952> user tag test'); 
+        // tag tom
+        message.channel.send('mei takes no skill. <@127856466571821056>'); 
     }
 
     /*
