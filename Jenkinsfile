@@ -37,7 +37,7 @@ def npmInstall() {
 
 def npmKill() {
 	stage ('Kill existing instance') {
-		sh ' if pgrep memeho-bot; then npm stop; else echo "No existing instance found" '
+		sh ' if pgrep memeho-bot; then npm stop; else echo "No existing instance found"; fi '
 	}
 }
 
