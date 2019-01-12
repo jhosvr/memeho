@@ -6,6 +6,8 @@
 runtime(){ $(date +%T); }
 branch=$(git branch | head -n1 | cut -d' ' -f2)
 
+echo "$runtime: Executing for branch $branch"
+
 case $branch in
 	develop)
 		main="memeho-test.js"
