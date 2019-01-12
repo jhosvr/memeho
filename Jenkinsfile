@@ -50,6 +50,7 @@ def npmKill() {
 
 def npmStart() {
 	stage ('Startup new instance') {
+		sh 'JENKINS_NODE_COOKIE=dontKillMe memeho-bot'
 		sh ' npm start '
 	}
 }
