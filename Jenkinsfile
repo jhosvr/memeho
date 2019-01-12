@@ -1,26 +1,3 @@
-/*
-pipeline {
-	agent any
-	stages {
-		stage('Install Dependencies') {
-			steps {
-				sh 'npm install'
-			}
-		}
-		stage ('Kill existing instance') {
-			steps {
-				sh 'npm stop'
-			}
-		}
-		stage ('Startup new instance') {
-			steps {
-				sh 'npm start'
-			}
-		}
-	}
-}
-*/
-
 node { 
 
 checkoutScm()
@@ -50,7 +27,6 @@ def npmKill() {
 
 def npmStart() {
 	stage ('Startup new instance') {
-		
 		sh ' JENKINS_NODE_COOKIE=dontKillMe npm start '
 		sh ' pgrep memeho-bot '
 	}
