@@ -23,26 +23,26 @@ pipeline {
 
 node { 
 
-npmInst()
-npmDead()
-npmAlive()
+npmInstall()
+npmKill()
+npmStart()
 
 }
 
-def npmInst() {
+def npmInstall() {
 	stage('Install Dependencies') {
-		sh " npm install "
+		sh ' npm install '
 	}
 }
 
-def npmDead() {
+def npmKill() {
 	stage ('Kill existing instance') {
-		sh " npm stop "
+		sh ' if pgrep memeho-bot; then npm stop; else echo "No existing instance found"; fi '
 	}
 }
 
-def npmAlive() {
+def npmStart() {
 	stage ('Startup new instance') {
-		sh " npm start "
+		sh ' npm start '
 	}
 }
