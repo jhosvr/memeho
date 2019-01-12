@@ -23,12 +23,19 @@ pipeline {
 
 node { 
 
+checkoutSCM()
 npmInst()
 npmDead()
 npmAlive()
 
 }
 
+def checkoutSCM() {
+	stage('Checkout SCM') {
+
+		checkout([$class: 'GitSCM', branches: [[name: 'develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
+	}
+}
 def npmInst() {
 	stage('Install Dependencies') {
 		sh " npm install "
