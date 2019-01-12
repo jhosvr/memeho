@@ -9,7 +9,7 @@ npmStart()
 
 def checkoutScm() {
 	stage('Checkout SCM') {
-		checkout([$class: 'GitSCM', branches: [[name: 'develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
+		checkout([$class: 'GitSCM', branches: [[name: 'jho']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
 	}
 }
 
