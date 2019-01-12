@@ -4,11 +4,9 @@
 # description: starts the memeho discord bot
 
 runtime(){ $(date +%T); }
-branch=$(git branch | head -n1 | cut -d' ' -f2)
+branch=$(echo "${GIT_BRANCH##origin/}")
 
-echo "THIS IS: ${GIT_BRANCH##origin/}"
 echo "$runtime: Executing for branch $branch"
-
 case $branch in
 	develop)
 		main="memeho-test.js"
