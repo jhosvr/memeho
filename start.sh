@@ -6,9 +6,8 @@
 runtime(){ $(date +%T); }
 branch=$(git branch | head -n1 | cut -d' ' -f2)
 
-echo "Printing branch detection:"
-git branch
-
+echo "Status: "
+git status
 echo "$runtime: Executing for branch $branch"
 
 case $branch in
