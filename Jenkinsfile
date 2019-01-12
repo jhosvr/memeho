@@ -51,7 +51,7 @@ def npmKill() {
 def npmStart() {
 	stage ('Startup new instance') {
 		
-		sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
+		sh ' JENKINS_NODE_COOKIE=dontKillMe npm start '
 		sh ' pgrep memeho-bot '
 	}
 }
