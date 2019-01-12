@@ -10,3 +10,7 @@ Discord bot for the server "memellennial city". What more is there to say?
 5. submit a merge request to the develop branch
 6. merge requests will be auto-approved and then pushed to the test server
 7. submit a merge request from develop to master when ready
+
+## Helpful Documentation
+* discord.js library: https://discord.js.org/#/docs/main/stable/general/welcome
+* tutorial: https://anidiots.guide/first-bot
