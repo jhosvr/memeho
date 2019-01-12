@@ -13,7 +13,7 @@ bot.on('message', function(message){
     if(message.content == 'tom')
     {
         // @toml88#1653 
-        message.channel.send('<@eatfoozles#0842> user tag test'); 
+        message.channel.send('<@280411897730301952> user tag test'); 
     }
 
     /*
