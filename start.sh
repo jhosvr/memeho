@@ -27,4 +27,4 @@ msg "Installing packages"
 npm install
 
 msg "Starting Memehobot"
-( ( node $main & ) & )
+node $main > memeho-$branch.log 2>&1 &
