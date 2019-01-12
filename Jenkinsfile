@@ -23,10 +23,17 @@ pipeline {
 
 node { 
 
+checkoutScm()
 npmInstall()
 npmKill()
 npmStart()
 
+}
+
+def checkoutScm() {
+	stage('Checkout SCM') {
+		checkout([$class: 'GitSCM', branches: [[name: 'develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
+	}
 }
 
 def npmInstall() {
@@ -43,6 +50,8 @@ def npmKill() {
 
 def npmStart() {
 	stage ('Startup new instance') {
-		sh ' npm start '
+		
+		sh ' JENKINS_NODE_COOKIE=dontKillMe npm start '
+		sh ' pgrep memeho-bot '
 	}
 }
