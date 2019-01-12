@@ -3,10 +3,10 @@
 # name: start.sh
 # description: starts the memeho discord bot
 
-runtime(){ $(date +%T); }
+msg(){ echo "$(date +%T) ${1}"; }
 branch=$(echo "${GIT_BRANCH##origin/}")
 
-echo "$runtime: Executing for branch $branch"
+msg "Executing for branch $branch"
 case $branch in
 	develop)
 		main="memeho-test.js"
@@ -20,11 +20,11 @@ case $branch in
 		;;
 esac
 
-echo "$runtime: Terminating existing instance"
+msg "Terminating existing instance"
 pkill -f $main
 
-echo "$runtime: Installing packages"
+msg "runtime: Installing packages"
 npm install
 
-echo "$runtime: Starting Memehobot"
+msg "runtime: Starting Memehobot"
 node $main &
