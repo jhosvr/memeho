@@ -35,6 +35,7 @@ def checkoutScm() {
 		checkout([$class: 'GitSCM', branches: [[name: 'develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
 	}
 }
+
 def npmInstall() {
 	stage('Install Dependencies') {
 		sh ' npm install '
