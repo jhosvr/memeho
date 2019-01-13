@@ -43,6 +43,7 @@ def npmStart() {
 				sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
 			}
 		}
+	}
 }
 
 def Validate() {
