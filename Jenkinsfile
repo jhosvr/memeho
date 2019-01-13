@@ -1,8 +1,10 @@
 node {
+
   checkoutScm()
   npmBuild()
   npmStop()
   npmStart()
+
 }
 
 def checkoutScm() {
