@@ -7,6 +7,8 @@ const bot = new Discord.Client();
 const branch = process.env.BRANCH_NAME
 
 process = 'memeho-bot-' + branch
+
+console.log('process is ' + process)
 process.title = process
 
 const token = process.env.DBOT_TOKEN
