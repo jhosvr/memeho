@@ -1,15 +1,8 @@
 node { 
-  if (env.BRANCH_NAME == 'master'){
-    PROCESS_NAME = 'memeho-bot-prod'
-  } else if (env.BRANCH == 'develop'){
-    PROCESS_NAME = 'memeho-bot-test'
-  }
-
   checkoutScm()
   npmBuild()
   npmStop()
   npmStart()
-
 }
 
 def checkoutScm() {
@@ -31,13 +24,13 @@ def npmBuild() {
 
 def npmStop() {
 	stage ('Kill existing instance') {
-		sh 'if pgrep ${PROCESS}; then npm stop; else echo "No existing instance found"; fi'
+		sh "if pgrep memeho-bot-${BRANCH_NAME}; then npm stop; else echo 'No existing instance found'; fi"
 	}
 }
 
 def npmStart() {
 	stage ('Start new instance') {
-		sh ' JENKINS_NODE_COOKIE=dontKillMe npm start '
-		sh ' pgrep memeho-bot '
+		sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
+		sh "pgrep memeho-bot-${BRANCH_NAME}"
 	}
 }
