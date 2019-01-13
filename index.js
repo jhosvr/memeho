@@ -1,7 +1,12 @@
-process.title = "memeho-bot";
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const token = process.env.DBOT_TOKEN_TEST
+
+const branch = process.env.BRANCH_NAME
+const token = process.env.DBOT_TOKEN
+
+process_name = 'memeho-' + branch
+process.title = process_name
+
 var prefix = ':'
 
 bot.on('message', function(message){

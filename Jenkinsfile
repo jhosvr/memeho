@@ -1,10 +1,10 @@
-node { 
+node {
 
-checkoutScm()
-npmInstall()
-npmKill()
-npmStart()
-
+  checkoutScm()
+  npmBuild()
+  npmStop()
+  npmStart()
+  Validate()
 }
 
 def checkoutScm() {
@@ -18,21 +18,37 @@ def checkoutScm() {
   }
 } 
 
-def npmInstall() {
+def npmBuild() {
 	stage('Install Dependencies') {
-		sh ' npm install '
+		sh 'npm install'
 	}
 }
 
-def npmKill() {
+def npmStop() {
 	stage ('Kill existing instance') {
-		sh ' if pgrep memeho-bot; then npm stop; else echo "No existing instance found"; fi '
+		sh "if pgrep memeho-${BRANCH_NAME}; then npm stop; else echo 'No existing instance found'; fi"
 	}
 }
 
 def npmStart() {
-	stage ('Startup new instance') {
-		sh ' JENKINS_NODE_COOKIE=dontKillMe npm start '
-		sh ' pgrep memeho-bot '
+	if (env.BRANCH_NAME == 'develop'){
+		withCredentials([string(credentialsId: 'memeho-bot-develop', variable: 'DBOT_TOKEN')]) {
+			stage ('Start new instance') {
+				sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
+			}
+		}
+	} else if (env.BRANCH_NAME == 'master'){
+		withCredentials([string(credentialsId: 'memeho-bot-master', variable: 'DBOT_TOKEN')]) {
+			stage ('Start new instance') {
+				sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
+			}
+		}
+	}
+}
+
+def Validate() {
+	stage ('Validating process') {
+		sh 'sleep 3'
+		sh "pgrep memeho-${BRANCH_NAME}"
 	}
 }

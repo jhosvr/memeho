@@ -4,9 +4,9 @@
   "description": "memellennial city discord bot",
   "main": "index.js",
   "scripts": {
-  	"start": "node index.js > /home/memeho/logs/discord.log 2>&1 &",
+    "start": "node index.js > /home/memeho/logs/memeho-$BRANCH_NAME.log 2>&1 &",
     "test": "echo \"Error: no test specified\" && exit 1",
-	  "stop": "pkill --signal SIGINT memeho-bot"
+    "stop": "pkill --signal SIGINT memeho-$BRANCH_NAME"
   },
   "author": "jho",
   "license": "ISC",
