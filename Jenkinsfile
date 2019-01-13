@@ -26,7 +26,7 @@ def npmBuild() {
 
 def npmStop() {
 	stage ('Kill existing instance') {
-		sh "if pgrep memeho-bot-${BRANCH_NAME}; then npm stop; else echo 'No existing instance found'; fi"
+		sh "if pgrep memeho-${BRANCH_NAME}; then npm stop; else echo 'No existing instance found'; fi"
 	}
 }
 
@@ -34,7 +34,7 @@ def npmStart() {
 	withCredentials([string(credentialsId: 'memeho-bot-develop', variable: 'DBOT_TOKEN')]) {
 		stage ('Start new instance') {
 			sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
-			sh "pgrep memeho-bot-${BRANCH_NAME}"
+			sh "pgrep memeho-${BRANCH_NAME}"
 		}
 	}
 }
