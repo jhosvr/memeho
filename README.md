@@ -2,6 +2,9 @@
 
 Discord bot for the server "memellennial city". What more is there to say?
 
+test server: https://discord.gg/F2ZurWg
+prod server: https://discord.gg/VkW9b8y
+
 ### Contributing to memebot
 1. `git clone https://github.com/jhosvr/memeho.git`
 2. `cd memebot && git branch <your name here> && git checkout <your name here>`
@@ -14,3 +17,5 @@ Discord bot for the server "memellennial city". What more is there to say?
 ## Helpful Documentation
 * discord.js library: https://discord.js.org/#/docs/main/stable/general/welcome
 * tutorial: https://anidiots.guide/first-bot
+
+

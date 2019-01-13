@@ -6,16 +6,28 @@ var prefix = ':'
 
 bot.on('message', function(message){
     if(message.content == 'hello') 
-	{
+	  {
         message.reply('howdy');
     };
 	
-	if (message.content.startsWith(prefix + "status"))
-	{
-		// always true
-		message.channel.send('Memeho is currently active!');
-	};
+    if(message.content == 'tom')
+    {
+        // tag tom
+        message.channel.send('mei takes no skill. <@127856466571821056>'); 
+    }
 
+    /*
+    COMMANDS THAT START WITH PREFIX ':'
+    todo:
+        convert to case/switch statements
+        probably use ':' commands in a seperate file and source them
+    */
+
+	  if (message.content.startsWith(prefix + "status"))
+	  {
+		    // always true
+		    message.channel.send('Memeho is currently active!');
+	  };
 
 });
 

@@ -1,26 +1,3 @@
-/*
-pipeline {
-	agent any
-	stages {
-		stage('Install Dependencies') {
-			steps {
-				sh 'npm install'
-			}
-		}
-		stage ('Kill existing instance') {
-			steps {
-				sh 'npm stop'
-			}
-		}
-		stage ('Startup new instance') {
-			steps {
-				sh 'npm start'
-			}
-		}
-	}
-}
-*/
-
 node { 
 
 checkoutScm()
@@ -32,9 +9,14 @@ npmStart()
 
 def checkoutScm() {
 	stage('Checkout SCM') {
-		checkout([$class: 'GitSCM', branches: [[name: 'develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
-	}
-}
+    checkout([$class: 'GitSCM', 
+      branches: [[name: env.BRANCH_NAME]], 
+      doGenerateSubmoduleConfigurations: false, 
+      extensions: [], 
+      submoduleCfg: [], 
+      userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
+  }
+} 
 
 def npmInstall() {
 	stage('Install Dependencies') {
@@ -50,7 +32,6 @@ def npmKill() {
 
 def npmStart() {
 	stage ('Startup new instance') {
-		
 		sh ' JENKINS_NODE_COOKIE=dontKillMe npm start '
 		sh ' pgrep memeho-bot '
 	}
