@@ -1,11 +1,13 @@
 // process.title = "memeho-bot";
-const config = require('./config.json');
+// const config = require('./config.json');
+
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 // const token = process.env.DBOT_TOKEN_TEST
 const branch = process.env.BRANCH_NAME
-const process_name= config[branch]
-process.title = process_name
+
+process = 'memeho-bot-' + branch
+process.title = process
 
 const token = process.env.DBOT_TOKEN
 

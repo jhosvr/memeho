@@ -1,10 +1,14 @@
 node { 
-  APP_ENV=env.BRANCH_NAME
-  println(APP_ENV)
-checkoutScm()
-npmBuild()
-npmStop()
-npmStart()
+  if (env.BRANCH_NAME == 'master'){
+    PROCESS_NAME = 'memeho-bot-prod'
+  } else if (env.BRANCH == 'develop'){
+    PROCESS_NAME = 'memeho-bot-test'
+  }
+
+  checkoutScm()
+  npmBuild()
+  npmStop()
+  npmStart()
 
 }
 
@@ -21,13 +25,13 @@ def checkoutScm() {
 
 def npmBuild() {
 	stage('Install Dependencies') {
-		sh ' npm install '
+		sh 'npm install'
 	}
 }
 
 def npmStop() {
 	stage ('Kill existing instance') {
-		sh ' if pgrep ${PROCESS}; then npm stop; else echo "No existing instance found"; fi '
+		sh 'if pgrep ${PROCESS}; then npm stop; else echo "No existing instance found"; fi'
 	}
 }
 
