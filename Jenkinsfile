@@ -37,11 +37,17 @@ def npmStart() {
 				sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
 			}
 		}
-	}
+	} else if (env.BRANCH_NAME == 'master'){
+		withCredentials([string(credentialsId: 'memeho-bot-master', variable: 'DBOT_TOKEN')]) {
+			stage ('Start new instance') {
+				sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
+			}
+		}
 }
 
 def Validate() {
 	stage ('Validating process') {
+		sh 'sleep 3'
 		sh "pgrep memeho-${BRANCH_NAME}"
 	}
 }
