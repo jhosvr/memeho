@@ -1,8 +1,8 @@
 node { 
 
 checkoutScm()
-npmInstall()
-npmKill()
+npmBuild()
+npmStop()
 npmStart()
 
 }
@@ -18,20 +18,20 @@ def checkoutScm() {
   }
 } 
 
-def npmInstall() {
+def npmBuild() {
 	stage('Install Dependencies') {
 		sh ' npm install '
 	}
 }
 
-def npmKill() {
+def npmStop() {
 	stage ('Kill existing instance') {
-		sh ' if pgrep memeho-bot; then npm stop; else echo "No existing instance found"; fi '
+		sh ' if pgrep ${PROCESS}; then npm stop; else echo "No existing instance found"; fi '
 	}
 }
 
 def npmStart() {
-	stage ('Startup new instance') {
+	stage ('Start new instance') {
 		sh ' JENKINS_NODE_COOKIE=dontKillMe npm start '
 		sh ' pgrep memeho-bot '
 	}
