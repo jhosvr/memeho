@@ -1,4 +1,5 @@
-node { 
+node {
+  withCredentials :
   checkoutScm()
   npmBuild()
   npmStop()
@@ -29,8 +30,10 @@ def npmStop() {
 }
 
 def npmStart() {
-	stage ('Start new instance') {
-		sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
-		sh "pgrep memeho-bot-${BRANCH_NAME}"
+	withCredentials([string(credentialsId: 'memeho-bot-develop', variable: 'DBOT_TOKEN')]) {
+		stage ('Start new instance') {
+			sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
+			sh "pgrep memeho-bot-${BRANCH_NAME}"
+		}
 	}
 }
