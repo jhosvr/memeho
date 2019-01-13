@@ -1,5 +1,6 @@
 node { 
   APP_ENV=env.BRANCH_NAME
+  println(APP_ENV)
 checkoutScm()
 npmBuild()
 npmStop()
