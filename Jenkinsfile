@@ -4,7 +4,7 @@ node {
   npmBuild()
   npmStop()
   npmStart()
-
+  Validate()
 }
 
 def checkoutScm() {
@@ -31,10 +31,17 @@ def npmStop() {
 }
 
 def npmStart() {
-	withCredentials([string(credentialsId: 'memeho-bot-develop', variable: 'DBOT_TOKEN')]) {
-		stage ('Start new instance') {
-			sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
-			sh "pgrep memeho-${BRANCH_NAME}"
+	if (env.BRANCH_NAME == 'develop'){
+		withCredentials([string(credentialsId: 'memeho-bot-develop', variable: 'DBOT_TOKEN')]) {
+			stage ('Start new instance') {
+				sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
+			}
 		}
+	}
+}
+
+def Validate() {
+	stage ('Validating process') {
+		sh "pgrep memeho-${BRANCH_NAME}"
 	}
 }
