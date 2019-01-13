@@ -1,8 +1,8 @@
 {
-  "development":{
+  "develop":{
     "process": "memehobot-test"
     },
-  "production" :{
+  "master" :{
     "process": "memehobot-prod"
     }
 }
