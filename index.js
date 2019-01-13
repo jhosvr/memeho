@@ -5,7 +5,6 @@ const branch = process.env.BRANCH_NAME
 const token = process.env.DBOT_TOKEN
 
 process_name = 'memeho-' + branch
-console.log('process is ' + process_name)
 process.title = process_name
 
 var prefix = ':'
