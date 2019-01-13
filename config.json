@@ -1,8 +1,0 @@
-{
-  "develop":{
-    "process": "memehobot-test"
-    },
-  "master" :{
-    "process": "memehobot-prod"
-    }
-}
