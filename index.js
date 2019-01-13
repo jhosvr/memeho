@@ -1,8 +1,12 @@
-process.title = "memeho-bot";
-const env = require('./env.json');
+// process.title = "memeho-bot";
+const conf = require('./config.json');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const token = process.env.DBOT_TOKEN_TEST
+const env = process.env.APP_ENV
+
+process.title = conf.env
+
 var prefix = ':'
 
 bot.on('message', function(message){
