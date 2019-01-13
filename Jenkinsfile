@@ -1,5 +1,4 @@
 node {
-  withCredentials :
   checkoutScm()
   npmBuild()
   npmStop()
