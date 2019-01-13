@@ -1,17 +1,12 @@
-// process.title = "memeho-bot";
-// const config = require('./config.json');
-
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-// const token = process.env.DBOT_TOKEN_TEST
+
 const branch = process.env.BRANCH_NAME
-
-process = 'memeho-bot-' + branch
-
-console.log('process is ' + process)
-process.title = process
-
 const token = process.env.DBOT_TOKEN
+
+process_name = 'memeho-bot-' + branch
+console.log('process is ' + process_name)
+process.title = process_name
 
 var prefix = ':'
 
