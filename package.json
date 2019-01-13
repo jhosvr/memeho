@@ -2,9 +2,11 @@
   "name": "memeho",
   "version": "0.0.1",
   "description": "memellennial city discord bot",
-  "main": "memeho-test.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js > /home/memeho/logs/memeho-$BRANCH_NAME.log 2>&1 &",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stop": "pkill --signal SIGINT memeho-$BRANCH_NAME"
   },
   "author": "jho",
   "license": "ISC",
