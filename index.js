@@ -40,4 +40,5 @@ bot.on('ready', function(){
     console.log('Bot has been initiated');
 })
 
+bot.on('error', console.error);
 bot.login(token);
