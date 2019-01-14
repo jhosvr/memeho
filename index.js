@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 const branch = process.env.BRANCH_NAME
 const token = process.env.DBOT_TOKEN
 
-process_name = 'memeho-' + branch
+process_name = 'dbot-' + branch
 process.title = process_name
 
 var prefix = ':'

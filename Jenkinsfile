@@ -49,6 +49,6 @@ def npmStart() {
 def Validate() {
 	stage ('Validating process') {
 		sh 'sleep 3'
-		sh "pgrep memeho-${BRANCH_NAME}"
+		sh "pgrep dbot-${BRANCH_NAME}"
 	}
 }
