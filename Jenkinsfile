@@ -33,7 +33,7 @@ def npmBuild() {
 
 def npmStop() {
 	stage ('Kill existing instance') {
-		sh "if pgrep memeho-${BRANCH_NAME}; then npm stop; else echo 'No existing instance found'; fi"
+		sh "if pgrep dbot-${BRANCH_NAME}; then npm stop; else echo 'No existing instance found'; fi"
 	}
 }
 
