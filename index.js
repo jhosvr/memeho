@@ -22,7 +22,7 @@ bot.on('message', function(message){
       message.channel.send(words);
     }
 
-    if(message.content == 'TOM')
+    if(message.content.toUpperCase() == 'TOM')
     {
         // tag tom
         message.channel.send('<@127856466571821056>, mei takes no skill. ');
