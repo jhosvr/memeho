@@ -16,14 +16,14 @@ node {
 
 def checkoutScm() {
 	stage('Checkout SCM') {
-    checkout([$class: 'GitSCM', 
-      branches: [[name: env.BRANCH_NAME]], 
-      doGenerateSubmoduleConfigurations: false, 
-      extensions: [], 
-      submoduleCfg: [], 
+    checkout([$class: 'GitSCM',
+      branches: [[name: env.BRANCH_NAME]],
+      doGenerateSubmoduleConfigurations: false,
+      extensions: [],
+      submoduleCfg: [],
       userRemoteConfigs: [[url: 'https://github.com/jhosvr/memeho.git']]])
   }
-} 
+}
 
 def npmBuild() {
 	stage('Install Dependencies') {
@@ -45,7 +45,7 @@ def npmStart() {
 				  sh 'JENKINS_NODE_COOKIE=dontKillMe npm start'
           }
       }
-      breal;
+      break;
     case "master":
 		  withCredentials([string(credentialsId: 'memeho-bot-master', variable: 'DBOT_TOKEN')]) {
 			  stage ('Start new instance') {
