@@ -10,15 +10,17 @@ process.title = process_name
 var prefix = ':'
 
 bot.on('message', function(message){
-    if(message.content == 'hello') 
+    var words = message.content.toUpperCase().split(' ');
+
+    if(words.includes == 'HELLO')
 	  {
         message.reply('howdy');
     };
-	
-    if(message.content == 'tom')
+
+    if(message.content == 'TOM')
     {
         // tag tom
-        message.channel.send('mei takes no skill. <@127856466571821056>'); 
+        message.channel.send('<@127856466571821056>, mei takes no skill. ');
     }
 
     /*
@@ -28,7 +30,7 @@ bot.on('message', function(message){
         probably use ':' commands in a seperate file and source them
     */
 
-	  if (message.content.startsWith(prefix + "status"))
+	  if (message.content.startsWith(prefix + "STATUS"))
 	  {
 		    // always true
 		    message.channel.send('Memeho is currently active!');
