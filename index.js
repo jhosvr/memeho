@@ -17,6 +17,11 @@ bot.on('message', function(message){
         message.reply('howdy');
     };
 
+    if(message.content == "print")
+    {
+      message.channel.send(words);
+    }
+
     if(message.content == 'TOM')
     {
         // tag tom
