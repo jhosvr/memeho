@@ -13,9 +13,8 @@ bot.on('error', console.error);
 bot.login(token);
 
 bot.on('message', function(message){
-
     /* Command responses */
-    if (message.content.startsWith(prefix + "STATUS")){
+    if (message.content.toUpperCase().startsWith(prefix + "STATUS")){
       // always true
       message.channel.send('Memeho is currently active!');
     }
