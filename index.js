@@ -10,7 +10,7 @@ process.title = process_name
 var prefix = ':'
 
 bot.on('message', function(message){
-    var words = message.content.toUpperCase();
+    var words = message.content.toUpperCase().split(' ');
 
     if(words == 'HELLO')
 	  {
