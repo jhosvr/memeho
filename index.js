@@ -17,7 +17,7 @@ bot.on('message', function(message){
         message.reply('howdy');
     };
 
-    if(words.includes == "PRINT")
+    if(words.includes('PRINT')
     {
       message.channel.send(words);
     }
