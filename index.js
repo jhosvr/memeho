@@ -37,7 +37,7 @@ bot.on('message', function(message){
 
 });
 
-bot.on('ready', function(){
+bot.on('ready', function(message){
     console.log('Bot has been initiated');
-    message.send('532749700122542081','beep boop.. memeho has been updated!')
+    bot.sendMessage('532749700122542081','beep boop.. memeho has been updated!');
 });
