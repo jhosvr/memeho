@@ -25,7 +25,7 @@ bot.on('message', function(message){
         message.reply('howdy');
     }
 
-    if(words.includes('widowmaker')){
+    if(words.includes('widowmaker') || words.includes('widow')){
       // tag Jason
       message.channel.send('<@219523329483210752> oh, is this your last game?');
     }
