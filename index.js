@@ -39,4 +39,7 @@ bot.on('message', function(message){
 
 bot.on('ready', function(){
     console.log('Bot has been initiated');
+    function(message){
+      message.channel.send('beep boop: memeho has been updated!');
+    }
 });
