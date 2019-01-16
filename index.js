@@ -1,44 +1,42 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js')
 const bot = new Discord.Client();
 
-const branch = process.env.BRANCH_NAME
-const token = process.env.DBOT_TOKEN
+const branch = process.env.BRANCH_NAME;
+const token = process.env.DBOT_TOKEN;
 
-process_name = 'dbot-' + branch
-process.title = process_name
+process_name = 'dbot-' + branch;
+process.title = process_name;
 
-var prefix = ':'
-
-bot.on('message', function(message){
-    if(message.content == 'hello') 
-	  {
-        message.reply('howdy');
-    };
-	
-    if(message.content == 'tom')
-    {
-        // tag tom
-        message.channel.send('mei takes no skill. <@127856466571821056>'); 
-    }
-
-    /*
-    COMMANDS THAT START WITH PREFIX ':'
-    todo:
-        convert to case/switch statements
-        probably use ':' commands in a seperate file and source them
-    */
-
-	  if (message.content.startsWith(prefix + "status"))
-	  {
-		    // always true
-		    message.channel.send('Memeho is currently active!');
-	  };
-
-});
-
+bot.login(token);
+bot.on('error', console.error);
 bot.on('ready', function(){
     console.log('Bot has been initiated');
-})
+});
 
-bot.on('error', console.error);
-bot.login(token);
+const prefix = ':';
+
+bot.on('message', function(message){
+    /* Command responses */
+    if (message.content.toUpperCase().startsWith(prefix + "STATUS")){
+      // always true
+      message.channel.send('Memeho is currently active!');
+    } else {
+
+      /* Eavesdrop responses: reading users messages */
+      var words = message.content.toLowerCase().split(' ');
+      if(words.includes('hello')){
+        message.reply('howdy');
+      }
+
+      if(words.includes('widowmaker') || words.includes('widow')){
+        // tag Jason
+        message.channel.send('<@219523329483210752> oh, is this your last game?');
+      }
+
+      if(words.includes('tom')){
+        // tag tom
+        message.channel.send('<@127856466571821056>, mei takes no skill. ');
+      }
+
+    }
+  });
