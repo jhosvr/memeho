@@ -20,16 +20,17 @@ bot.on('message', function(message){
     }
 
     /* Eavesdrop responses: reading users messages */
-    var words = message.content.toUpperCase().split(' ');
-    if(words == 'HELLO'){
+    var words = message.content.toLowerCase().split(' ');
+    if(words.includes('hello')){
         message.reply('howdy');
     }
 
-    if(words.includes('PRINT')){
-      message.channel.send(words);
+    if(words.includes('widowmaker')){
+      // tag Jason
+      message.channel.send('<@219523329483210752> oh, is this your last game?');
     }
 
-    if(message.content == 'TOM'){
+    if(words.includes('tom')){
         // tag tom
         message.channel.send('<@127856466571821056>, mei takes no skill. ');
     }
