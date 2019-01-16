@@ -59,6 +59,6 @@ def npmStart() {
 def dbotValidate() {
 	stage ('Validating process') {
 		sh 'sleep 3'
-		sh "pgrep dbot-${BRANCH_NAME} || cat $HOME/logs/dbot-${BRANCH_NAME} && exit 1"
+		sh "pgrep dbot-${BRANCH_NAME} || cat $HOME/logs/dbot-${BRANCH_NAME}.log && exit 1"
 	}
 }
