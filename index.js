@@ -12,17 +12,17 @@ var prefix = ':'
 bot.on('message', function(message){
     var words = message.content.toUpperCase();
 
-    if(words.includes == 'HELLO')
+    if(words == 'HELLO')
 	  {
         message.reply('howdy');
     };
 
-    if(message.content == "print")
+    if(words.includes == "PRINT")
     {
       message.channel.send(words);
     }
 
-    if(message.content.toUpperCase() == 'TOM')
+    if(message.content == 'TOM')
     {
         // tag tom
         message.channel.send('<@127856466571821056>, mei takes no skill. ');
