@@ -22,17 +22,22 @@ bot.on('message', function(message){
 
     /* Command responses */
     if (message.content.startsWith(prefix)){
+      var command = message.content.substr(1,message.content.length).toLowerCase().split(' ');
 
-      if (message.content.toLowerCase() == prefix + "status"){
+      if (command[0] == "debug"){
+        message.reply(command);
+      }
+
+      if (command[0] == "status"){
         // always true
         message.channel.send('Memeho is currently active!');
       }
 
-      if(message.content.toLowerCase() == prefix + "pika"){
+      if(command[0] == "pika"){
         message.channel.send('',{files: ["https://i.imgur.com/sohWhy9.jpg"]});
       }
 
-      if (message.content.startsWith(prefix + "ow")) {
+      if (command[0] == "ow") {
         if (message.content.indexOf('#') > -1) {
           // User sends their BattleTag, send them back some stats
           ow(message.content, (err, data) => {
