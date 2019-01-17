@@ -32,7 +32,7 @@ bot.on('message', function(message){
         message.channel.send('',{files: ["https://i.imgur.com/sohWhy9.jpg"]});
       }
 
-      if (message.content.startsWith(prefix)) {
+      if (message.content.startsWith(prefix + "ow")) {
         if (message.content.indexOf('#') > -1) {
           // User sends their BattleTag, send them back some stats
           ow(message.content, (err, data) => {
