@@ -33,7 +33,6 @@ bot.on('message', function(message){
           break;
       }
 
-      }
       if (command[0] == "debug"){
         message.reply(command);
       }
