@@ -43,6 +43,7 @@ bot.on('message', function(message){
             message.reply(data);
           });
         }
+      }
     } else {
       /* Eavesdrop responses: reading users messages */
       var words = message.content.toLowerCase().split(' ');
