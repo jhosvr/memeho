@@ -24,6 +24,14 @@ bot.on('message', function(message){
     if (message.content.startsWith(prefix)){
       var command = message.content.substr(1,message.content.length).toLowerCase().split(' ');
 
+      switch (command[0]){
+        case "case1":
+          message.reply('case1 called');
+        case "case2":
+          message.reply('case2 called');
+      }
+
+      }
       if (command[0] == "debug"){
         message.reply(command);
       }
