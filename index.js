@@ -17,11 +17,17 @@ const prefix = ':';
 
 bot.on('message', function(message){
     /* Command responses */
-    if (message.content.toUpperCase().startsWith(prefix + "STATUS")){
+    if (message.content.startsWith(prefix)){
       // always true
-      message.channel.send('Memeho is currently active!');
-    } else {
+      if (message.content.toLowerCase() == prefix + "status"){
+        message.channel.send('Memeho is currently active!');
+      }
 
+      if(message.content.toLowerCase() == prefix + "pika"){
+        message.channel.send('',{files: ["https://i.imgur.com/sohWhy9.jpg"]});
+      }
+
+    } else {
       /* Eavesdrop responses: reading users messages */
       var words = message.content.toLowerCase().split(' ');
       if(words.includes('hello')){
