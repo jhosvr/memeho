@@ -25,39 +25,29 @@ bot.on('message', function(message){
       var command = message.content.substr(1,message.content.length).toLowerCase().split(' ');
 
       switch(command[0]) {
-        case "case1":
-          message.reply('case1 called');
+        case "what":
+          message.reply(command);
           break;
-        case "case2":
-          message.reply('case2 called');
+        case "status":
+          // always true
+          message.channel.send('Memeho is currently active!');
           break;
-      }
-
-      if (command[0] == "debug"){
-        message.reply(command);
-      }
-
-      if (command[0] == "status"){
-        // always true
-        message.channel.send('Memeho is currently active!');
-      }
-
-      if(command[0] == "pika"){
-        message.channel.send('',{files: ["https://i.imgur.com/sohWhy9.jpg"]});
-      }
-
-      if (command[0] == "ow") {
-        if (message.content.indexOf('#') > -1) {
-          // User sends their BattleTag, send them back some stats
-          ow(message.content, (err, data) => {
-            if (err) {
-              message.reply("An error occured :(");
-              return console.error(err + ': ' + data);
-            }
-            message.reply(data);
-          });
+        case "pika":
+          message.channel.send('',{files: ["https://i.imgur.com/sohWhy9.jpg"]});
+          break;
+        case "ow":
+          if (message.content.indexOf('#') > -1) {
+            // User sends their BattleTag, send them back some stats
+            ow(message.content, (err, data) => {
+              if (err) {
+                message.reply("An error occured :(");
+                return console.error(err + ': ' + data);
+              }
+              message.reply(data);
+            });
+          }
         }
-      }
+
     } else {
       /* Eavesdrop responses: reading users messages */
       var words = message.content.toLowerCase().split(' ');
