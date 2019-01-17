@@ -1,5 +1,6 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 const bot = new Discord.Client();
+const ow = require('./overwatch.js');
 
 const branch = process.env.BRANCH_NAME;
 const token = process.env.DBOT_TOKEN;
@@ -16,6 +17,9 @@ bot.on('ready', function(){
 const prefix = ':';
 
 bot.on('message', function(message){
+    // Prevent bot read loops
+    if(message.author.bot) return;
+
     /* Command responses */
     if (message.content.startsWith(prefix)){
 
@@ -27,6 +31,18 @@ bot.on('message', function(message){
       if(message.content.toLowerCase() == prefix + "pika"){
         message.channel.send('',{files: ["https://i.imgur.com/sohWhy9.jpg"]});
       }
+
+      if (message.content.startsWith(prefix)) {
+        if (message.content.indexOf('#') > -1) {
+          // User sends their BattleTag, send them back some stats
+          ow(message.content, (err, data) => {
+            if (err) {
+              message.reply("An error occured :(");
+              return console.error(err + ': ' + data);
+            }
+
+      message.reply(data);
+    });
 
     } else {
       /* Eavesdrop responses: reading users messages */
