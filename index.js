@@ -40,10 +40,9 @@ bot.on('message', function(message){
               message.reply("An error occured :(");
               return console.error(err + ': ' + data);
             }
-
-      message.reply(data);
-    });
-
+            message.reply(data);
+          });
+        }
     } else {
       /* Eavesdrop responses: reading users messages */
       var words = message.content.toLowerCase().split(' ');
