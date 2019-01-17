@@ -18,8 +18,9 @@ const prefix = ':';
 bot.on('message', function(message){
     /* Command responses */
     if (message.content.startsWith(prefix)){
-      // always true
+
       if (message.content.toLowerCase() == prefix + "status"){
+        // always true
         message.channel.send('Memeho is currently active!');
       }
 
