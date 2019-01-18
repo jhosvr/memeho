@@ -103,7 +103,7 @@ module.exports = (message, callback) => {
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       // For API errors, send back the error to the user
-      let statsJSON = JSON.parse(body);
+      var statsJSON = JSON.parse(body);
       if (statsJSON.statusCode == 404)
         return callback('API Error: ' + statsJSON.statusCode + ' - ' + statsJSON.error, statsJSON.error);
       }
