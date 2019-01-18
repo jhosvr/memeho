@@ -103,11 +103,11 @@ module.exports = (message, callback) => {
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       // For API errors, send back the error to the user
-      let response = JSON.parse(body);
-      if (response.statusCode == 404)
-        return callback('API Error: ' + response.statusCode + ' - ' + response.error, response.error);
+      let statsJSON = JSON.parse(body);
+      if (statsJSON.statusCode == 404)
+        return callback('API Error: ' + statsJSON.statusCode + ' - ' + statsJSON.error, statsJSON.error);
       }
       //message.channel.send(response);
-      return callback(null, response);
+      return callback(null, statsJSON);
     });
 };
