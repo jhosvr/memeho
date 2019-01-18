@@ -108,8 +108,6 @@ module.exports = (message, callback) => {
         return callback('API Error: ' + response.statusCode + ' - ' + response.error, response.error);
       }
       message.channel.send(response);
+      return callback(null, response);
     });
-
-  let responseString = response;
-  return callback(null, responseString);
 };
