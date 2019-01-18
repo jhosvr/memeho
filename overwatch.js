@@ -90,15 +90,15 @@ module.exports = (message, callback) => {
 
   if (commands[1].indexOf('#') > -1) {
     var battletag = commands[1].replace('#', '-');
-    message.channel.send('battletab variable is: ' + battletag);
+    //message.channel.send('battletab variable is: ' + battletag);
   }
 
   var statlevel = commands[2];
-  message.channel.send('statlevel is: ' + statlevel)
+  //message.channel.send('statlevel is: ' + statlevel)
 
   var url = urlbase + '/' + battletag + '/' + statlevel;
 
-  message.channel.send('Getting stats from URL: ' + url);
+  //message.channel.send('Getting stats from URL: ' + url);
 
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -107,7 +107,7 @@ module.exports = (message, callback) => {
       if (response.statusCode == 404)
         return callback('API Error: ' + response.statusCode + ' - ' + response.error, response.error);
       }
-      message.channel.send(response);
+      //message.channel.send(response);
       return callback(null, response);
     });
 };

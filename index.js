@@ -46,6 +46,7 @@ bot.on('message', function(message){
               message.reply(data);
             });
           }
+          break;
         }
 
     } else {
