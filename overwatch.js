@@ -109,4 +109,6 @@ module.exports = (message, callback) => {
       }
       message.channel.send(response);
     });
+
+  return callback(null, response);
 };
