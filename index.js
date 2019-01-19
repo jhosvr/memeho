@@ -66,5 +66,10 @@ bot.on('message', function(message){
         message.channel.send('<@127856466571821056>, mei takes no skill. ');
       }
 
+      if(words.includes('justin')){
+        // shut up
+        message.channel.send('@280411897730301952>, SHUT UP CHRIS! ');
+      }
+
     }
   });
