@@ -68,7 +68,7 @@ bot.on('message', function(message){
 
       if(words.includes('justin')){
         // shut up
-        message.channel.send('@280411897730301952>, SHUT UP CHRIS! ');
+        message.channel.send('<@280411897730301952>, SHUT UP CHRIS! ');
       }
 
     }
