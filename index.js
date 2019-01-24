@@ -24,6 +24,12 @@ bot.on('message', function(message){
 
     /* Command responses */
     if (message.content.startsWith(prefix)){
+
+      if (messsage.content[message.content.length -1] == ':'){
+        message.channel.send('emote detected');
+        return;
+      }
+
       var command = message.content.substr(1,message.content.length).toLowerCase().split(' ');
 
       switch(command[0]) {
