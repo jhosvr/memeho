@@ -68,7 +68,7 @@ bot.on('message', function(message){
 
       var words = message.content.toLowerCase().split(' ');
       // Auto tag users
-      if(words.includes(users)) {
+      if(words.includes(users.name)) {
         message.channel.send('user detected');
       }
     }
