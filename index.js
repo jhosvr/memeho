@@ -73,6 +73,7 @@ bot.on('message', function(message){
         message.channel.send(users.justin);
         return;
       }
+      message.channel.send('users object: ' + users)
       message.channel.send('Words detected: ' + words);
     }
   });
