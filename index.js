@@ -66,13 +66,13 @@ bot.on('message', function(message){
         }
       } else {
 
-      var words = message.content.toLowerCase().split(' ');
+        var words = message.content.toLowerCase().split(' ');
 
-      // Auto tag users
-      if(words.includes('justin')) {
-        message.channel.send(users.justin);
-        return;
+        // Auto tag users
+        if(words.includes('justin')) {
+          message.channel.send(users.justin);
+          return;
+        }
+        message.channel.send(users);
       }
-      message.channel.send(users[0]);
-    }
   });
