@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ow = require('./overwatch.js');
-const users = require('./users.js');
+const users = require('./users.json');
 
 const branch = process.env.BRANCH_NAME;
 const token = process.env.DBOT_TOKEN;
