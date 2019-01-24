@@ -35,6 +35,8 @@ bot.on('message', function(message){
         case "pika":
           message.channel.send('',{files: ["https://i.imgur.com/sohWhy9.jpg"]});
           break;
+        case "superhot":
+          message.channel.send('',{files: ["https://thumbs.gfycat.com/FrailTanAmericanlobster-small.gif"]});
         case "ow":
           if (message.content.indexOf('#') > -1) {
             // User sends their BattleTag, send them back some stats
