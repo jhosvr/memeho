@@ -74,6 +74,5 @@ bot.on('message', function(message){
         return;
       }
       message.channel.send(users[0]);
-      message.channel.send('Words detected: ' + words);
     }
   });
