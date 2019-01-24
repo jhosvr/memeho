@@ -22,8 +22,7 @@ bot.on('message', function(message){
     if(message.author.bot) return;
 
     if (message.content.startsWith(prefix)){
-
-      // Exit parsing if just an emoji was snet
+      // Precent additional parsing/resource usage if just an emoji was sent
       if (message.content.endsWith(':')){
         return;
       }
