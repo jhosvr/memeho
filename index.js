@@ -44,8 +44,11 @@ bot.on('message', function(message){
           });
         }
       }
-    } else {
-      /* Eavesdrop responses: reading users messages */
+    }
+/*
+      *****DISABLE MESSAGE PARSING*****
+    else {
+      // Eavesdrop responses: reading users messages
       var words = message.content.toLowerCase().split(' ');
       if(words.includes('hello')){
         message.reply('howdy');
@@ -62,4 +65,5 @@ bot.on('message', function(message){
       }
 
     }
+    */
   });
