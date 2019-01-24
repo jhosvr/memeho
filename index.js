@@ -24,8 +24,7 @@ bot.on('message', function(message){
 
     /* Command responses */
     if (message.content.startsWith(prefix)){
-      var emoji_test = message.content[content.length -1]
-      if (emoji_test == ':'){
+      if (message.content.endsWith(':')){
         message.channel.send('emote detected');
         return;
       }
