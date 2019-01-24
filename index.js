@@ -71,7 +71,8 @@ bot.on('message', function(message){
         // Auto tag users
         for (var each in users) {
           if (words.includes(users[each])) {
-            let tag = '<@users.' + users[each] + '>'
+            let userid = 'users.' + users[each];
+            let tag = '<@' + users.userid + '>';
             message.channel.send(tag);
           }
 
