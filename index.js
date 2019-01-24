@@ -70,9 +70,8 @@ bot.on('message', function(message){
 
         // Auto tag users
         if(words.includes('justin')) {
-          message.channel.send(users.justin);
+          message.channel.send('<@' + users.justin +'>');
           return;
         }
-        message.channel.send(typeof(users));
       }
   });
