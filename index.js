@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ow = require('./overwatch.js');
+const users = require('./users.js');
 
 const branch = process.env.BRANCH_NAME;
 const token = process.env.DBOT_TOKEN;
@@ -29,12 +30,13 @@ bot.on('message', function(message){
 
       // BOT COMMANDS
       var command = message.content.substr(1,message.content.length).toLowerCase().split(' ');
+
       switch(command[0]) {
         case "debug":
           switch(command[1]){
             case "message":
-              message.reply('Message object requested, please see below:');
-              message.reply(message);
+              message.reply('Message content requested, please see below:');
+              message.reply(message.content);
               break;
           }
           break;
@@ -47,7 +49,8 @@ bot.on('message', function(message){
           break;
         case "superhot":
           message.channel.send('',{files: ["https://thumbs.gfycat.com/FrailTanAmericanlobster-small.gif"]});
-        case "ow":
+          break;
+        /* case "ow":
           if (message.content.indexOf('#') > -1) {
             // User sends their BattleTag, send them back some stats
             ow(message.content, (err, data) => {
@@ -59,32 +62,14 @@ bot.on('message', function(message){
             });
           }
           break;
+          */
         }
-      }
-    }
-/*      *****DISABLE MESSAGE PARSING*****
-    else {
-      // Eavesdrop responses: reading users messages
+      } else {
+
       var words = message.content.toLowerCase().split(' ');
-      if(words.includes('hello')){
-        message.reply('howdy');
+      // Auto tag users
+      if(words.includes(users)) {
+        message.channel.send('user detected');
       }
-
-      if(words.includes('widowmaker') || words.includes('widow')){
-        // tag Jason
-        message.channel.send('<@219523329483210752> oh, is this your last game?');
-      }
-
-      if(words.includes('tom')){
-        // tag tom
-        message.channel.send('<@127856466571821056>, mei takes no skill. ');
-      }
-
-      if(words.includes('justin')){
-        // shut up
-        message.channel.send('<@280411897730301952>, SHUT UP CHRIS! ');
-      }
-
     }
-    */
-  );
+  });
