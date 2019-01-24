@@ -17,23 +17,27 @@ bot.on('ready', function(){
 });
 
 const prefix = ':';
-
 bot.on('message', function(message){
     // Prevent bot read loops
     if(message.author.bot) return;
 
-    /* Command responses */
     if (message.content.startsWith(prefix)){
+
+      // Exit parsing if just an emoji was snet
       if (message.content.endsWith(':')){
-        message.channel.send('emote detected');
         return;
       }
-      message.channel.send('outside if block');
 
+      // BOT COMMANDS
       var command = message.content.substr(1,message.content.length).toLowerCase().split(' ');
       switch(command[0]) {
-        case "what":
-          message.reply(command);
+        case "debug":
+          switch(command[1]){
+            case "message":
+              message.reply('Message object requested, please see below:');
+              message.reply(message);
+              break;
+          }
           break;
         case "status":
           // always true
