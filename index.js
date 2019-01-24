@@ -24,14 +24,14 @@ bot.on('message', function(message){
 
     /* Command responses */
     if (message.content.startsWith(prefix)){
-
-      if (messsage.content[message.content.length -1] == ':'){
+      var emoji_test = message.content[content.length -1]
+      if (emoji_test == ':'){
         message.channel.send('emote detected');
         return;
       }
+      message.channel.send('outside if block');
 
       var command = message.content.substr(1,message.content.length).toLowerCase().split(' ');
-
       switch(command[0]) {
         case "what":
           message.reply(command);
