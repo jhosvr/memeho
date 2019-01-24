@@ -1,3 +1,4 @@
+/*
 const https = require('https');
 const request = require('request');
 
@@ -77,4 +78,36 @@ module.exports = (message, callback) => {
     }
   });
 
+};
+*/
+
+const https = require('https');
+const request = require('request');
+const urlbase = 'https://ow-api.com/v1/stats/pc/us'
+
+module.exports = (message, callback) => {
+  commands = message.split(' ');
+
+  if (commands[1].indexOf('#') > -1) {
+    var battletag = commands[1].replace('#', '-');
+    //message.channel.send('battletab variable is: ' + battletag);
+  }
+
+  var statlevel = commands[2];
+  //message.channel.send('statlevel is: ' + statlevel)
+
+  var url = urlbase + '/' + battletag + '/' + statlevel;
+
+  //message.channel.send('Getting stats from URL: ' + url);
+
+  request(url, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      // For API errors, send back the error to the user
+      var statsJSON = JSON.parse(body);
+      if (statsJSON.statusCode == 404)
+        return callback('API Error: ' + statsJSON.statusCode + ' - ' + statsJSON.error, statsJSON.error);
+      }
+      //message.channel.send(response);
+      return callback(null, statsJSON);
+    });
 };

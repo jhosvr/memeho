@@ -22,33 +22,44 @@ bot.on('message', function(message){
 
     /* Command responses */
     if (message.content.startsWith(prefix)){
+      var command = message.content.substr(1,message.content.length).toLowerCase().split(' ');
 
-      if (message.content.toLowerCase() == prefix + "status"){
-        // always true
-        message.channel.send('Memeho is currently active!');
-      }
-
-      if(message.content.toLowerCase() == prefix + "pika"){
-        message.channel.send('',{files: ["https://i.imgur.com/sohWhy9.jpg"]});
-      }
-
-      if (message.content.startsWith(prefix + "ow")) {
-        if (message.content.indexOf('#') > -1) {
-          // User sends their BattleTag, send them back some stats
-          ow(message.content, (err, data) => {
-            if (err) {
-              message.reply("An error occured :(");
-              return console.error(err + ': ' + data);
-            }
-            message.reply(data);
-          });
+      switch(command[0]) {
+        case "what":
+          message.reply(command);
+          break;
+        case "status":
+          // always true
+          message.channel.send('Memeho is currently active!');
+          break;
+        case "pika":
+          message.channel.send('',{files: ["https://i.imgur.com/sohWhy9.jpg"]});
+          break;
+        case "ow":
+          if (message.content.indexOf('#') > -1) {
+            // User sends their BattleTag, send them back some stats
+            ow(message.content, (err, data) => {
+              if (err) {
+                message.reply("An error occured :(");
+                return console.error(err + ': ' + data);
+              }
+              message.reply(data);
+            });
+          }
+          break;
         }
+<<<<<<< HEAD
       }
     }
 /*
       *****DISABLE MESSAGE PARSING*****
     else {
       // Eavesdrop responses: reading users messages
+=======
+
+    } else {
+      /* Eavesdrop responses: reading users messages */
+>>>>>>> 8c09508e76a4fb5efffd42a40fabe02d8fb5331d
       var words = message.content.toLowerCase().split(' ');
       if(words.includes('hello')){
         message.reply('howdy');
@@ -62,6 +73,11 @@ bot.on('message', function(message){
       if(words.includes('tom')){
         // tag tom
         message.channel.send('<@127856466571821056>, mei takes no skill. ');
+      }
+
+      if(words.includes('justin')){
+        // shut up
+        message.channel.send('<@280411897730301952>, SHUT UP CHRIS! ');
       }
 
     }
