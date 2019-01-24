@@ -71,5 +71,6 @@ bot.on('message', function(message){
       if(words.includes(users)) {
         message.channel.send('user detected');
       }
+      message.channel.send('Words detected: ' + words);
     }
   });
