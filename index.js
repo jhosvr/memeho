@@ -11,7 +11,7 @@ process.title = process_name;
 bot.login(token);
 bot.on('error', console.error);
 bot.on('ready', function(){
-    var channel = client.channels.get('533355330642378762');
+    var channel = bot.channels.get('533355330642378762');
     channel.sendMessage('beep boop: memeho has been updated!');
     console.log(process.title + ' has been started');
 });
