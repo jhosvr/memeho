@@ -73,6 +73,6 @@ bot.on('message', function(message){
           message.channel.send(users.justin);
           return;
         }
-        message.channel.send(typof(users));
+        message.channel.send(typeof(users));
       }
   });
