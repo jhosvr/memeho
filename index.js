@@ -67,10 +67,12 @@ bot.on('message', function(message){
       } else {
 
         var words = message.content.toLowerCase().split(' ');
+        var names = JSON.parse(users)
 
+        message.channel.send(names)
         // Auto tag users
         if(words.includes('justin')) {
-          message.channel.send('<@' + users.justin +'>');
+          message.channel.send('<@' + users.justin + '>');
           return;
         }
       }
