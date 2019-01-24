@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ow = require('./overwatch.js');
-const users = require('./users.json');
+const usersJson = require('./users.json');
 
 const branch = process.env.BRANCH_NAME;
 const token = process.env.DBOT_TOKEN;
@@ -67,10 +67,10 @@ bot.on('message', function(message){
       } else {
 
         var words = message.content.toLowerCase().split(' ');
-        var names = JSON.parse(users)
-
-        message.channel.send(names)
+        var users = JSON.parse(usersJson);
         // Auto tag users
+
+        message.channel.send(users);
         if(words.includes('justin')) {
           message.channel.send('<@' + users.justin + '>');
           return;
