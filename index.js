@@ -16,6 +16,7 @@ bot.on('ready', function(){
     var channel = bot.channels.get('533355330642378762');
     channel.sendMessage('beep boop: memeho has been updated!');
     console.log(process.title + ' has been started');
+    bot.user.setActivity("THE NEEDFUL", { type: "DO"});
 });
 
 const prefix = ':';
@@ -74,16 +75,6 @@ bot.on('message', function(message){
           if (words.includes(names[each])) {
             message.channel.send('<@' + users[names[each]] + '>');
           }
-
         }
-        /* To be removed
-
-        message.channel.send(users);
-        if(words.includes('justin')) {
-          message.channel.send('<@' + users.justin + '>');
-          return;
-        }
-
-        */
       }
   });
