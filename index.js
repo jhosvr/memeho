@@ -16,7 +16,7 @@ bot.on('ready', function(){
     var channel = bot.channels.get('533355330642378762');
     channel.sendMessage('beep boop: memeho has been updated!');
     console.log(process.title + ' has been started');
-    bot.user.setActivity("DO THE NEEDFUL", { type: "PLAYING"});
+    bot.user.setActivity("do the needful", { type: "PLAYING"});
 });
 
 const prefix = ':';
