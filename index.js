@@ -58,7 +58,7 @@ bot.on('message', function(message){
         case "superhot":
           message.channel.send('',{files: ["https://thumbs.gfycat.com/FrailTanAmericanlobster-small.gif"]});
           break;
-        /* case "ow":
+        case "ow":
           if (message.content.indexOf('#') > -1) {
             // User sends their BattleTag, send them back some stats
             ow(message.content, (err, data) => {
@@ -70,8 +70,8 @@ bot.on('message', function(message){
             });
           }
           break;
-          */
         }
+
       } else {
 
         var words = message.content.toLowerCase().split(' ');
@@ -82,7 +82,7 @@ bot.on('message', function(message){
 
           if (words.includes(mentioned)) {
             let tag = '<@' + users[mentioned] + '>';
-            let echo = "WARNING: " + tag + " has been flagged as a topic of conversation";
+            let echo = "beep boop: let me help you flag " + tag;
             message.channel.send(echo);
           }
         }
@@ -92,9 +92,14 @@ bot.on('message', function(message){
             message.channel.send('<@219523329483210752> oh, is this your last game?');
         }
 
-        if (words.includes('tom')) {
+        if (words.includes('mei')) {
             // tag tom
-            message.channel.send('<@127856466571821056>, mei takes no skill. ');
+            message.channel.send('<@127856466571821056>, turn your hacks off, mei takes no skill. ');
+        }
+
+        if (words.includes('dota') || words.includes('age of empires')) {
+            // tag mike
+            message.channel.send('<@348309391751249930>, just play overwatch with us');
         }
       }
   });
