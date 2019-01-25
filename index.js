@@ -74,9 +74,10 @@ bot.on('message', function(message){
         for (var each in names) {
           let id = message.id;
           let mentioned = names[each].toLowerCase();
+          
           if (words.includes(mentioned)) {
-            let tag = '<@' + users[names[each]] + '>';
-            let edited = message.content.replace(mentioned, tag);
+            let tag = '<@' + users[mentioned] + '>';
+            let edited = message.content.toLowerCase().replace(mentioned, tag);
             message.channel.send(edited);
           }
         }
