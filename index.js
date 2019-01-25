@@ -18,9 +18,9 @@ bot.on('ready', function(){
     console.log(process.title + ' has been started');
     bot.user.setPresence({
       game: {
-          name: 'to everything',
+          name: 'everything',
           type: 2,
-          url: "https://github.com/jhosvr/memeho"
+          url: "https://www.twitch.tv/asir_khan"
       }
     });
 });
