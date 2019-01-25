@@ -22,7 +22,7 @@ bot.on('ready', function(){
           type: 0,
           url: "https://github.com/jhosvr/memeho"
       }
-    })("do the needful", { type: "PLAYING"});
+    });
 });
 
 const prefix = ':';
