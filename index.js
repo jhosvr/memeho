@@ -20,7 +20,7 @@ bot.on('ready', function(){
       game: {
           name: 'everything',
           type: 2,
-          url: "https://www.twitch.tv/asir_khan"
+          url: "https://github.com/jhosvr/memeho" //"https://www.twitch.tv/asir_khan"
       }
     });
 });
