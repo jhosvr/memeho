@@ -15,7 +15,6 @@ const token = process.env.DBOT_TOKEN;
 const ow = require('./overwatch.js');
 const users = require('./users.json');
 const names = Object.keys(require('./users.json'));
-const channellist = ['533355330642378762','520460975279833088'];
 
 process_name = 'dbot-' + branch;
 process.title = process_name;
@@ -25,9 +24,7 @@ bot.login(token);
 bot.on('error', console.error);
 
 bot.on('ready', function(){
-
-  bot.channels.get('533355330642378762').sendMessage('beep boop: memeho has been updated!');
-  bot.channels.get('520460975279833088').sendMessage('beep boop: memeho has been updated!');
+  bot.channels.get('532749700122542081').sendMessage('beep boop: memeho has been updated!');
 
   console.log(process.title + ' has been started');
   bot.user.setPresence({
