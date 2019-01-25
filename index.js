@@ -79,5 +79,15 @@ bot.on('message', function(message){
             message.channel.send(edited);
           }
         }
+
+        if (words.includes('widowmaker') || words.includes('widow')){
+            // tag Jason
+            message.channel.send('<@219523329483210752> oh, is this your last game?');
+        }
+
+        if(words.includes('tom')){
+            // tag tom
+            message.channel.send('<@127856466571821056>, mei takes no skill. ');
+        }
       }
   });
