@@ -18,8 +18,8 @@ bot.on('ready', function(){
     console.log(process.title + ' has been started');
     bot.user.setPresence({
       game: {
-          name: 'Home Page',
-          type: 0,
+          name: 'to everything',
+          type: 2,
           url: "https://github.com/jhosvr/memeho"
       }
     });
