@@ -25,10 +25,12 @@ bot.login(token);
 bot.on('error', console.error);
 
 bot.on('ready', function(){
-  for (var each in channels) {
-    var channel = bot.channels.get(each);
+
+  for (var c in channels) {
+    let channel = bot.channels.get(each);
     channel.sendMessage('beep boop: memeho has been updated!');
   }
+
   console.log(process.title + ' has been started');
   bot.user.setPresence({
     game: {
