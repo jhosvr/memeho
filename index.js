@@ -13,8 +13,10 @@ process.title = process_name;
 bot.login(token);
 bot.on('error', console.error);
 bot.on('ready', function(){
+
     var channel = bot.channels.get('533355330642378762');
     channel.sendMessage('beep boop: memeho has been updated!');
+    console.log(bot.channels);
     console.log(process.title + ' has been started');
     bot.user.setPresence({
       game: {
