@@ -74,11 +74,11 @@ bot.on('message', function(message){
         for (var each in names) {
           let id = message.id;
           let mentioned = names[each].toLowerCase();
-          
+
           if (words.includes(mentioned)) {
             let tag = '<@' + users[mentioned] + '>';
-            let edited = message.content.toLowerCase().replace(mentioned, tag);
-            message.channel.send(edited);
+            let echo = tag + "," + message.author + "is begging for your attention";
+            message.channel.send(echo);
           }
         }
 
