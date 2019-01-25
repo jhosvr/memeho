@@ -77,7 +77,7 @@ bot.on('message', function(message){
 
           if (words.includes(mentioned)) {
             let tag = '<@' + users[mentioned] + '>';
-            let echo = tag + "," + message.author + "is begging for your attention";
+            let echo = tag + ", " + message.author + " is begging for your attention";
             message.channel.send(echo);
           }
         }
