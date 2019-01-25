@@ -25,7 +25,7 @@ bot.on('error', console.error);
 
 bot.on('ready', function(){
   let channel = bot.channels.find('avocado-toasters', id);
-  chanenl.send('beep boop: memeho has been updated!');
+  channel.send('beep boop: memeho has been updated!');
 
   console.log(process.title + ' has been started');
   bot.user.setPresence({
