@@ -26,10 +26,8 @@ bot.on('error', console.error);
 
 bot.on('ready', function(){
 
-  for (var each in channellist) {
-    let channel = bot.channels.get(channellist[each]);
-    channel.sendMessage('beep boop: memeho has been updated!');
-  }
+  bot.channels.get('533355330642378762').sendMessage('beep boop: memeho has been updated!');
+  bot.channels.get('520460975279833088').sendMessage('beep boop: memeho has been updated!');
 
   console.log(process.title + ' has been started');
   bot.user.setPresence({
