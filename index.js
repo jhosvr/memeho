@@ -70,10 +70,13 @@ bot.on('message', function(message){
 
         var words = message.content.toLowerCase().split(' ');
 
-        // Auto tag users
+        // Replace user name with tags
         for (var each in names) {
+          let id = message.id;
           if (words.includes(names[each])) {
-            message.channel.send('<@' + users[names[each]] + '>');
+            let tag = '<@' + users[names[each]] + '>';
+            let edited = message.content.replace(names[each], tag);
+            message.channel.send(edited);
           }
         }
       }
