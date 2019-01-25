@@ -24,7 +24,7 @@ bot.login(token);
 bot.on('error', console.error);
 
 bot.on('ready', function(){
-  let channel = bot.channels.find(channel => channel.name === "avocado-toasters");
+  let channel = bot.channels.find(channel => channel.name === "smd");
   channel.send('beep boop: memeho has been updated!');
 
   console.log(process.title + ' has been started');
