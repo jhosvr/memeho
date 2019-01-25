@@ -72,12 +72,11 @@ bot.on('message', function(message){
 
         // Replace user name with tags
         for (var each in names) {
-          let id = message.id;
           let mentioned = names[each].toLowerCase();
 
           if (words.includes(mentioned)) {
             let tag = '<@' + users[mentioned] + '>';
-            let echo = tag + ", " + message.author + " is begging for your attention";
+            let echo = "WARNING: " + tag + " has been flagged as a topic of conversation";
             message.channel.send(echo);
           }
         }
