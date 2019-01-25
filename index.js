@@ -1,30 +1,42 @@
+/*
+  name: index.js
+  description: main file for memeho discord bot
+*/
+
+// Discord variables
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+
+// environment variables
+const branch = process.env.BRANCH_NAME;
+const token = process.env.DBOT_TOKEN;
+
+// miscellaneous loads
 const ow = require('./overwatch.js');
 const users = require('./users.json');
 const names = Object.keys(require('./users.json'));
-
-const branch = process.env.BRANCH_NAME;
-const token = process.env.DBOT_TOKEN;
+const channels = ['533355330642378762','520460975279833088'];
 
 process_name = 'dbot-' + branch;
 process.title = process_name;
 
 bot.login(token);
-bot.on('error', console.error);
-bot.on('ready', function(){
 
-    var channel = bot.channels.get('533355330642378762');
+bot.on('error', console.error);
+
+bot.on('ready', function(){
+  for (var each in channels) {
+    var channel = bot.channels.get(each);
     channel.sendMessage('beep boop: memeho has been updated!');
-    console.log(bot.channels);
-    console.log(process.title + ' has been started');
-    bot.user.setPresence({
-      game: {
-          name: 'everyone',
-          type: 2,
-          url: "https://www.twitch.tv/asir_khan"
-      }
-    });
+  }
+  console.log(process.title + ' has been started');
+  bot.user.setPresence({
+    game: {
+      name: 'everyone',
+      type: 2,
+      url: "https://www.twitch.tv/asir_khan"
+    }
+  });
 });
 
 const prefix = ':';
