@@ -27,7 +27,7 @@ bot.on('error', console.error);
 bot.on('ready', function(){
 
   for (var each in channels) {
-    let channel = bot.channels.get(each);
+    let channel = bot.channels.get(channels[each]);
     channel.sendMessage('beep boop: memeho has been updated!');
   }
 
