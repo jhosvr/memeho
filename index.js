@@ -24,7 +24,8 @@ bot.login(token);
 bot.on('error', console.error);
 
 bot.on('ready', function(){
-  bot.channels.get('532749700122542081').sendMessage('beep boop: memeho has been updated!');
+  let board = bot.channels.get('532749700122542081');
+  board.sendMessage('beep boop: memeho has been updated!');
 
   console.log(process.title + ' has been started');
   bot.user.setPresence({
