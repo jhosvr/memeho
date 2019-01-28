@@ -8,8 +8,8 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 
 // environment variables
-const branch = process.env.BRANCH_NAME;
-const token = process.env.DBOT_TOKEN;
+let branch = process.env.BRANCH_NAME;
+let token = process.env.DBOT_TOKEN;
 
 process.title = 'dbot-' + branch;
 bot.login(token);
@@ -19,6 +19,7 @@ bot.on('ready', () => {
   let channel = bot.channels.find(channel => channel.name === "smd");
   channel.send('beep boop: memeho has been updated!');
   console.log(process.title + ' has been started');
+
   bot.user.setPresence({
     game: {
       name: 'everyone',
@@ -28,8 +29,11 @@ bot.on('ready', () => {
   });
 });
 
-const prefix = ':';
-bot.on('message', function(message){
+bot.on('message', (message) => {
     // Prevent bot read loops
-    if(message.author.bot) return;
-  });
+    if (message.author.bot) return;
+
+    if (message.content.startsWith(':')) {
+
+    }
+});

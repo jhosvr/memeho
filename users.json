@@ -1,8 +1,26 @@
 {
-  "derek": "117923507744014339",
-  "jason": "219523329483210752",
-  "joe": "188144788795686912",
-  "justin": "280411897730301952",
-  "mike": "348309391751249930",
-  "tom": "127856466571821056"
+  "derek": {
+    "discord_id": "117923507744014339",
+    "battle_tag": "Bortaz#1644"
+    },
+  "jason": {
+    "discord_id": "219523329483210752",
+    "battle_tag": "eonblue#1482"
+  },
+  "joe": {
+    "discord_id": "188144788795686912",
+    "battle_tag": "Verst#1542"
+  },
+  "justin": {
+    "discord_id": "280411897730301952",
+    "battle_tag": "eatfoozles#1395"
+  },
+  "mike": {
+    "discord_id": "348309391751249930",
+    "battle_tag": "LittleDagerr#1677"
+  },
+  "tom": {
+    "discord_id": "127856466571821056",
+    "battle_tag": "toml88#1588"
+  }
 }
