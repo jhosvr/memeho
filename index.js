@@ -50,11 +50,6 @@ bot.on('message', (message) => {
     const command = bot.commands.get(commandName)
       || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-    // DM attempts
-    if (command.guildOnly && message.channel.type !== 'text') {
-	     return message.reply('that doesn\'t work inside a DM');
-    }
-
     // Argument handling
     if (command.args && !args.length) {
         let reply = `wtb: arguments, ${message.author}`;
