@@ -10,7 +10,7 @@ const bot = new Discord.Client();
 // BOT CONFIG
 let branch = process.env.BRANCH_NAME;
 let token = process.env.DBOT_TOKEN;
-const prefix = '>';
+const prefix = '> ';
 process.title = 'dbot-' + branch;
 const cooldowns = new Discord.Collection();
 

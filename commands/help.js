@@ -6,6 +6,6 @@ module.exports = {
 	cooldown: 5,
 
 	execute(message, args) {
-		message.channel.send("hahah; no.");
+		message.channel.send("hahah <@" + message.author + "> no.");
 	},
 };
