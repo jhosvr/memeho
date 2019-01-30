@@ -23,7 +23,7 @@ module.exports = {
   guildOnly: false,
   cooldown: 3,
 
-  execute(message, args) {
+  execute(message, callback) {
     let msgParts = message.content.split(' ');
 
     let battleTag = null;
