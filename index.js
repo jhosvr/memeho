@@ -19,7 +19,7 @@ bot.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
+	bot.commands.set(command.name, command);
 }
 
 // BOT EVENTS
@@ -47,7 +47,7 @@ bot.on('message', (message) => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
 
-    const command = client.commands.get(commandName)
+    const command = bot.commands.get(commandName)
       || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
     // DM attempts
