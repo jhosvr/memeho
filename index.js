@@ -89,5 +89,6 @@ bot.on('message', (message) => {
     } catch (error) {
 	      console.error(error);
 	      message.reply('wah! something went wrong.');
+				message.channel.send('arguments supplied: ' + args)
     }
 });
