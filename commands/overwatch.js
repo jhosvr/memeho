@@ -14,7 +14,7 @@ let buildAPIUrl = (battleTag) => {
   return apiBaseUrl + apiType + '/' + platform + '/' + region + '/' + battleTag;
 };
 
-module.exports = {
+module.exports = (message, callback) => {
   name: 'overwatch',
   aliases: ['ow'],
   description: 'overwatch api',
@@ -23,7 +23,7 @@ module.exports = {
   guildOnly: false,
   cooldown: 3,
 
-  execute(message, args) {
+  execute(message, callback) {
     let msgParts = message.content.split(' ');
 
     let battleTag = null;
@@ -43,12 +43,12 @@ module.exports = {
 
     // Check user's options for validity
     if (!battleTag) {
-      return args('Invalid BattleTag', 'Please provide a valid BattleTag. Ex: User#1234')
+      return callback('Invalid BattleTag', 'Please provide a valid BattleTag. Ex: User#1234')
     } else {
       if (platformOptions.indexOf(platform) == -1)
-        return args('Invalid Platform', 'Platform invalid, allowed options are: ' + platformOptions.join(' '));
+        return callback('Invalid Platform', 'Platform invalid, allowed options are: ' + platformOptions.join(' '));
       if (regionOptions.indexOf(region) == -1)
-        return args('Invalid Region', 'Region invalid, allowed options are: ' + regionOptions.join(' '));
+        return callback('Invalid Region', 'Region invalid, allowed options are: ' + regionOptions.join(' '));
     }
 
     let url = buildAPIUrl(battleTag);
@@ -59,7 +59,7 @@ module.exports = {
         // For API errors, send back the error to the user
         let statsJSON = JSON.parse(body);
         if (statsJSON.statusCode == 404)
-          return args('API Error: ' + statsJSON.statusCode + ' - ' + statsJSON.error, statsJSON.error);
+          return callback('API Error: ' + statsJSON.statusCode + ' - ' + statsJSON.error, statsJSON.error);
 
         // Stats were returned okay, let's parse them
         let stats = statsJSON;
@@ -79,9 +79,9 @@ module.exports = {
         statsString += '**' + statQuickWins + '** Quick Play wins\n';
         statsString += '**' + statCompTime + '** Competitive | ' + '**' + statQuickTime + '** Quick Play'
 
-        return args(null, statsString);
+        return callback(null, statsString);
       } else {
-        return args(error || response.statusCode, null);
+        return callback(error || response.statusCode, null);
       }
     });
   },
