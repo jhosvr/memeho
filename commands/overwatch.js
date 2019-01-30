@@ -24,7 +24,7 @@ module.exports = {
   cooldown: 3,
 
   execute(message, args) {
-    let msgParts = message.split(' ');
+    let msgParts = message.content.split(' ');
 
     let battleTag = null;
     platform = platformOptions[0];
