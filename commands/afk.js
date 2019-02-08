@@ -8,11 +8,10 @@ module.exports = {
   cooldown: 3, // sec to wait until user can use again
 
 	execute(message, args) {
-    let server = bot.channels[channelID].guild_id;;
-    let alluser = server.members;
+    let server = message.guild_id;
     let afkuser = args[0];
 
-		message.channel.send(allusers);
+		message.channel.send(server);
     message.channel.reply(afkuser);
 	},
 };
