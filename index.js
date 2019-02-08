@@ -52,7 +52,7 @@ bot.on('message', (message) => {
 
     // Argument handling
     if (command.args && !args.length) {
-        let reply = `wtb: arguments, ${message.author}`;
+        let reply = `wtb: arguments, ${message.author} \n`;
         if (command.usage) {
           reply += `Usage: \`${prefix}${command.name} ${command.usage}\``;
         }
