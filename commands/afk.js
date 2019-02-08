@@ -8,10 +8,9 @@ module.exports = {
   cooldown: 3, // sec to wait until user can use again
 
 	execute(message, args) {
-    let server = message.guild_id;
+    let currentusers = guild.members.filter(member => member.presence.status === "online");
     let afkuser = args[0];
 
-		message.channel.send(server);
-    message.reply(afkuser);
-	},
+		message.reply(currentusers);
+	}
 };
