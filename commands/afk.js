@@ -8,7 +8,7 @@ module.exports = {
   cooldown: 3, // sec to wait until user can use again
 
 	execute(message, args) {
-    let currentusers = message.channel.id.members;
+    let currentusers = message.mentions.members.first();
     let afkuser = args[0];
 
 		message.reply(currentusers);
