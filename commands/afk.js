@@ -12,6 +12,6 @@ module.exports = {
     let afkuser = args[0];
 
 		message.channel.send(server);
-    message.channel.reply(afkuser);
+    message.reply(afkuser);
 	},
 };
