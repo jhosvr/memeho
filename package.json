@@ -4,14 +4,13 @@
   "description": "memellennial city discord bot",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js > /home/memeho/logs/dbot-$BRANCH_NAME.log 2>&1 &",
+    "start": "node memeho.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "stop": "pkill --signal SIGINT dbot-$BRANCH_NAME"
+    "stop": "pkill --signal SIGINT memeho-$BRANCH_NAME"
   },
   "author": "jho",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.4.2",
-    "request": "^2.81.0"
+    "discord.js": "^12.5.1"
   }
 }
